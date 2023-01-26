@@ -4,8 +4,8 @@
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   font-weight: 400;
-  background-color: #033859;
-  color: #7ebcf2;
+  background-color: #2f394d;
+  color: #eee1b3;
 }
 
 html {
@@ -20,6 +20,7 @@ h1 {
   margin-top: 5rem;
   font-size: 4rem;
   font-weight: 700;
+  color: #eee1b3;
 }
 
 p {
@@ -51,16 +52,23 @@ p {
 .winning-message {
   font-size: 3rem;
   font-weight: 700;
-  color: #f4f4f4;
+  color: #eee1b3;
 }
 
 .restart button {
   padding: 1rem;
+  font-weight: 700;
   border-radius: 5px;
   border: none;
   outline: none;
-  background-color: #011526;
+  background-color: #eee1b3;
+  color: #330036;
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+.restart button:hover {
+  background-color: #330036;
+  color: #eee1b3;
 }
 
 .board {
@@ -79,4 +87,5 @@ p {
   width: 100%;
   height: 128px;
   outline: none;
+  border: 2px solid #eee1b3;
 }

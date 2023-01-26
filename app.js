@@ -28,10 +28,15 @@ const DOM = (() => {
     el.textContent = msg;
   };
 
+  const winMsg = (el) => {
+    el.innerText !== "" ? true : false;
+  };
+
   return {
     getBoard,
     placeMark,
     showWinMessage,
+    winMsg,
   };
 })();
 
@@ -75,8 +80,6 @@ const Controller = (() => {
     button.addEventListener(
       "click",
       () => {
-        // checkWin(currentPlayer);
-        //refactor this
         if (currentPlayer === firstPlayer) {
           handleSelection(currentPlayer, button, index);
           currentPlayer = secondPlayer;
@@ -101,6 +104,7 @@ const Controller = (() => {
     ) {
       const msg = `${currentPlayer} wins`;
       DOM.showWinMessage(winDisplay, msg);
+      buttons.forEach((button) => (button.disabled = true));
       return true;
     } else {
       return false;
@@ -180,11 +184,8 @@ const Controller = (() => {
       return false;
     }
   };
-  //dheck draw
+
   const checkDraw = () => {
-    //if !board.includes('')
-    //!checkWin
-    //draw
     if (!board.includes("") && !checkWin(currentPlayer)) {
       console.log("draw");
       const msg = "draw";
@@ -192,14 +193,7 @@ const Controller = (() => {
     }
   };
 
-  // const endGame = () => {
-  //   if (checkWin) {
-  //     console.log("win");
-  //   }
-  // };
-
   restart.addEventListener("click", () => {
     location.reload();
-    //what is a work around to once: true event listener option
   });
 })();
